@@ -31,15 +31,15 @@ let pcPoints = 0;
 function game() {
     for (i = 0; i < 5; i++) {
         const result = playRound();
-        if (result === "You win!") {
+        if (result.includes("You win!")) {
             playerPoints++;
             console.log(`computer: ${pcPoints} | player: ${playerPoints}`);
             console.log(result);
-          } else if (result === "You lose!") {
+          } else if (result.includes("You lose!")) {
             pcPoints++;
             console.log(`computer: ${pcPoints} | player: ${playerPoints}`);
             console.log(result);
-          } else if (result === "It's a tie!") {
+          } else if (result.includes("It's a tie!")) {
             playerPoints++;
             pcPoints++; 
             console.log(`computer: ${pcPoints} | player: ${playerPoints}`)
@@ -57,9 +57,9 @@ function winner() {
     if (playerPoints > pcPoints) {
         console.log("Congratulations, you win the game!") 
     } else if (playerPoints < pcPoints) {
-        console.log("You lose! Better luck next time.")
+        console.log("You lost the game! Better luck next time.")
     } else {
-        console.log("It's a tie! Nobody wins.")
+        console.log("It's a tie! Nobody wins this game.")
     } 
 }
 

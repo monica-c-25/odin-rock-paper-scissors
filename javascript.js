@@ -5,40 +5,45 @@ function getComputerchoice() {
 
 const buttons = document.querySelectorAll('button');
 
-function getID() {
-    let playerSelection = this.id;
-    playRound(playerSelection);
-}
-
 buttons.forEach(button => 
     button.addEventListener('click', getID));
 
+function getID() {
+    let playerSelection = this.id;
+    playRound(playerSelection);
+    }
 
 function playRound(playerSelection) {
     let computerSelection = getComputerchoice();
     if (playerSelection === "rock" && computerSelection === "paper") { 
-        console.log("Paper beats rock. You lose!");
+        result = "Paper beats rock. You lose!";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log("Rock beats scissors. You win!");
+        result = "Rock beats scissors. You win!";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("Paper beats rock. You win!");
+        result = "Paper beats rock. You win!";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        console.log("Scissors beats paper. You lose!");
+        result = "Scissors beats paper. You lose!";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        console.log("Rock beats scissors. You lose!");
+        result = "Rock beats scissors. You lose!";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-       console.log("Scissors beats paper. You win!");
+        result = "Scissors beats paper. You win!";
     } else if (playerSelection === computerSelection) {
-        console.log("It's a tie!");
+        result = "It's a tie!";
     } 
+document.getElementById('result').innerHTML = result
 }
+
+const resultBox = document.createElement('div');
+resultBox.id = "result";
+document.body.appendChild(resultBox);
+
  
 /* let playerPoints = 0;
 let pcPoints = 0;
 
 function game() {
    // for (i = 0; i < 5; i++) {
-        const result = playRound();
+        const  = playRound();
         if (result.includes("You win!")) {
             playerPoints++;
             console.log(`computer: ${pcPoints} | player: ${playerPoints}`);
@@ -60,7 +65,11 @@ function game() {
     return [playerPoints, pcPoints]
 }
 
-function winner() {
+const runningScore = document.createElement('div')
+runningScore.id = "runningScore";
+document.body.appendChild(runningScore);
+
+/* function winner() {
     game();
     if (playerPoints > pcPoints) {
         return ("Congratulations, you win the game!") 

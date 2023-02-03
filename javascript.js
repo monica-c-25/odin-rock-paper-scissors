@@ -79,6 +79,17 @@ function gameOver(playerPoints,pcPoints) {
     } 
 }
 
+function resetGame(){
+    playerPoints = 0;
+    pcPoints = 0;
+
+    //document.getElementById('playAgain').innerHTML =    
+}
+
+const playAgain = document.createElement('div');
+playAgain.id = "playAgain";
+document.body.appendChild(playAgain);
+
 function winner(playerPoints,pcPoints) {
     if (playerPoints > pcPoints) {
         finalWinner = "Congratulations, you win the game!"; 
@@ -87,6 +98,7 @@ function winner(playerPoints,pcPoints) {
     } else {
         finalWinner = "It's a tie! Nobody wins this game.";
     } 
+    resetGame();
     document.getElementById('winner').innerHTML = finalWinner;
 }
 
@@ -94,7 +106,7 @@ const winnerDiv = document.createElement('div');
 winnerDiv.id = "winner";
 document.body.appendChild(winnerDiv);
 
-//console.log(winner())
+
 
 
 

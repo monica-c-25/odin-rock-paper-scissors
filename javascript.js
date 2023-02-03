@@ -40,7 +40,6 @@ const resultBox = document.createElement('div');
 resultBox.id = "result";
 document.body.appendChild(resultBox);
 
- 
 let playerPoints = 0;
 let pcPoints = 0;
 
@@ -63,30 +62,41 @@ function game(result) {
             currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`)
             //console.log(currentScore);
           }
+          gameOver(playerPoints,pcPoints);
           document.getElementById('runningScore').innerHTML = currentScore;
 }
 
-    //return [playerPoints, pcPoints]
-//}
+//[playerPoints, pcPoints]
 
-const runningScore = document.createElement('div')
+
+const runningScore = document.createElement('div');
 runningScore.id = "runningScore";
 document.body.appendChild(runningScore);
 
-/* function winner() {
-    game();
-    if (playerPoints > pcPoints) {
-        return ("Congratulations, you win the game!") 
-    } else if (playerPoints < pcPoints) {
-        return ("You lost the game! Better luck next time.")
-    } else {
-        return ("It's a tie! Nobody wins this game.")
+function gameOver(playerPoints,pcPoints) {
+    if (playerPoints === 5 || pcPoints === 5) {
+        winner(playerPoints,pcPoints);
     } 
 }
 
-console.log(winner())
+function winner(playerPoints,pcPoints) {
+    if (playerPoints > pcPoints) {
+        finalWinner = "Congratulations, you win the game!"; 
+    } else if (playerPoints < pcPoints) {
+        finalWinner = "You lost the game! Better luck next time.";
+    } else {
+        finalWinner = "It's a tie! Nobody wins this game.";
+    } 
+    document.getElementById('winner').innerHTML = finalWinner;
+}
 
-*/
+const winnerDiv = document.createElement('div');
+winnerDiv.id = "winner";
+document.body.appendChild(winnerDiv);
+
+//console.log(winner())
+
+
 
 
 

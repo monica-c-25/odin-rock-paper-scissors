@@ -1,3 +1,37 @@
+function startGame() {
+    let startDiv = document.getElementById("start");
+    let gameBTNS = document.getElementById("btns");
+    let gameOver = document.getElementById("gameOver");
+    startDiv.style.display = "none";
+    gameBTNS.style.display = "block";
+    gameOver.style.display = "none"; 
+}
+
+/* function createBTNS() {
+const btns = document.getElementById('btns');
+
+const rock= document.createElement("button");
+rock.setAttribute("id", "rock");
+rock.innerHTML="rock";
+btns.appendChild(rock);
+
+
+const paper= document.createElement("button");
+paper.setAttribute("id", "paper");
+paper.innerHTML="paper";
+btns.appendChild(paper);
+
+const scissors= document.createElement("button");
+scissors.setAttribute("id", "scissors");
+scissors.innerHTML="scissors";
+btns.appendChild(scissors);
+}
+
+*/
+//function start() {buttons.forEach(button => 
+    //button.addEventListener('click', getID));
+//}
+
 function getComputerchoice() {
     const choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * choices.length)];
@@ -79,16 +113,6 @@ function gameOver(playerPoints,pcPoints) {
     } 
 }
 
-function resetGame(){
-    playerPoints = 0;
-    pcPoints = 0;
-
-    //document.getElementById('playAgain').innerHTML =    
-}
-
-const playAgain = document.createElement('div');
-playAgain.id = "playAgain";
-document.body.appendChild(playAgain);
 
 function winner(playerPoints,pcPoints) {
     if (playerPoints > pcPoints) {
@@ -98,13 +122,47 @@ function winner(playerPoints,pcPoints) {
     } else {
         finalWinner = "It's a tie! Nobody wins this game.";
     } 
-    resetGame();
     document.getElementById('winner').innerHTML = finalWinner;
+    gameRestart();
 }
 
 const winnerDiv = document.createElement('div');
 winnerDiv.id = "winner";
 document.body.appendChild(winnerDiv);
+
+function gameRestart() {
+    const playAgain = document.createElement('button');
+    playAgain.textContent = "Play Again?"
+    playAgain.id = "playAgain";
+    document.body.appendChild(playAgain);
+    document.getElementById('playAgain').innerHTML = playAgain.textContent;
+    playAgain.addEventListener('click', newGame)
+}
+
+function newGame() {
+    location.reload();
+    startGame();
+}
+
+
+/*function resetGame(){
+    playerPoints = 0;
+    pcPoints = 0;
+}
+
+    let startDiv = document.getElementById("start");
+    let gameBTNS = document.getElementById("btns");
+    let gameOver = document.getElementById("gameOver");
+    startDiv.style.display = "none";
+    gameBTNS.style.display = "none"; 
+    gameOver.style.display = "block"; 
+    playerPoints = 0;
+    pcPoints = 0;
+*/
+
+
+
+
 
 
 

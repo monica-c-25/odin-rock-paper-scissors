@@ -7,15 +7,30 @@
         <script src="javascript.js" defer></script>
     </head>
     <body>
+        <div id="btns" style="display:none">
+            <div id="gameButtons">
+                <button id="rock">rock</button>
+                <button id="paper">paper</button>
+                <button id="scissors">scissors</button>
+            </div>    
+        </div>
 
-<div>
-    <button id="rock">rock</button>
-    <button id="paper">paper</button>
-    <button id="scissors">scissors</button>
-</div>
+        <div id="start" style="display:block">
+            <a href="#" onclick="startGame()">Start Game</a>
+        </div>
 
+        <div id="gameOver" style="display:none">
+            <h1>Game Over</h1>
+            <a href="#" onclick="gameRestart()">Play Again?</a>
+        </div>
 
-
+        <!--
+            <div id="gameButtons">
+                <button id="rock">rock</button>
+                <button id="paper">paper</button>
+                <button id="scissors">scissors</button>
+           </div> 
+            -->
     </body>
 </html>
 

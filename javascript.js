@@ -11,7 +11,9 @@ buttons.forEach(button =>
 function getID() {
     let playerSelection = this.id;
     playRound(playerSelection);
-    }
+    } 
+
+let result;
 
 function playRound(playerSelection) {
     let computerSelection = getComputerchoice();
@@ -30,6 +32,7 @@ function playRound(playerSelection) {
     } else if (playerSelection === computerSelection) {
         result = "It's a tie!";
     } 
+game(result);
 document.getElementById('result').innerHTML = result
 }
 
@@ -38,32 +41,33 @@ resultBox.id = "result";
 document.body.appendChild(resultBox);
 
  
-/* let playerPoints = 0;
+let playerPoints = 0;
 let pcPoints = 0;
 
-function game() {
+function game(result) {
    // for (i = 0; i < 5; i++) {
-        const  = playRound();
         if (result.includes("You win!")) {
             playerPoints++;
-            console.log(`computer: ${pcPoints} | player: ${playerPoints}`);
-            console.log(result);
+            currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`);
+            //console.log(currentScore);
           } else if (result.includes("You lose!")) {
             pcPoints++;
-            console.log(`computer: ${pcPoints} | player: ${playerPoints}`);
-            console.log(result);
+            currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`);
+            //console.log(currentScore);
           } else if (result.includes("It's a tie!")) {
             playerPoints++;
             pcPoints++; 
-            console.log(`computer: ${pcPoints} | player: ${playerPoints}`)
-            console.log(result);
+            currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`)
+            //console.log(currentScore);
           } else {
-            console.log(`computer: ${pcPoints} | player: ${playerPoints}`)
-            console.log(result);
+            currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`)
+            //console.log(currentScore);
           }
-       // }
-    return [playerPoints, pcPoints]
+          document.getElementById('runningScore').innerHTML = currentScore;
 }
+
+    //return [playerPoints, pcPoints]
+//}
 
 const runningScore = document.createElement('div')
 runningScore.id = "runningScore";

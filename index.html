@@ -3,12 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
-        <script src="javascript.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="javascript.js" defer></script>
     </head>
     <body>
+        <div id="btns" style="display:none">
+            <h1 class = "weapon">Choose Your Weapon</h1>
+            <div id="gameButtons">
+                <button id="rock">rock</button>
+                <button id="paper">paper</button>
+                <button id="scissors">scissors</button>
+            </div>    
+        </div>
+
+        <div id="start">
+            <h1 class="header">Rock Paper Scissors</h1>
+            <button class="startGame" onclick="startGame()">Start Game</button>
+        </div>
 
     </body>
 </html>
 
+<!-- <a class="startGame" href="#" onclick="startGame()">Start Game</a> -->
 
 

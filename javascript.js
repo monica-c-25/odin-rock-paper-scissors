@@ -51,7 +51,7 @@ document.body.appendChild(resultBox);
 let playerPoints = 0;
 let pcPoints = 0;
 
-function game(result) {
+function game() {
         if (result.includes("You win!")) {
             playerPoints++;
             currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`);
@@ -89,6 +89,9 @@ function winner(playerPoints,pcPoints) {
         finalWinner = "It's a tie! Nobody wins this game.";
     } 
     document.getElementById('winner').innerHTML = finalWinner;
+    document.getElementById("rock").disabled = true;
+    document.getElementById("paper").disabled = true;
+    document.getElementById("scissors").disabled = true;
     gameRestart();
 }
 

@@ -1,36 +1,10 @@
 function startGame() {
     let startDiv = document.getElementById("start");
     let gameBTNS = document.getElementById("btns");
-    let gameOver = document.getElementById("gameOver");
     startDiv.style.display = "none";
     gameBTNS.style.display = "block";
-    gameOver.style.display = "none"; 
 }
 
-/* function createBTNS() {
-const btns = document.getElementById('btns');
-
-const rock= document.createElement("button");
-rock.setAttribute("id", "rock");
-rock.innerHTML="rock";
-btns.appendChild(rock);
-
-
-const paper= document.createElement("button");
-paper.setAttribute("id", "paper");
-paper.innerHTML="paper";
-btns.appendChild(paper);
-
-const scissors= document.createElement("button");
-scissors.setAttribute("id", "scissors");
-scissors.innerHTML="scissors";
-btns.appendChild(scissors);
-}
-
-*/
-//function start() {buttons.forEach(button => 
-    //button.addEventListener('click', getID));
-//}
 
 function getComputerchoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -78,30 +52,22 @@ let playerPoints = 0;
 let pcPoints = 0;
 
 function game(result) {
-   // for (i = 0; i < 5; i++) {
         if (result.includes("You win!")) {
             playerPoints++;
             currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`);
-            //console.log(currentScore);
           } else if (result.includes("You lose!")) {
             pcPoints++;
             currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`);
-            //console.log(currentScore);
           } else if (result.includes("It's a tie!")) {
             playerPoints++;
             pcPoints++; 
             currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`)
-            //console.log(currentScore);
           } else {
             currentScore = (`computer: ${pcPoints} | player: ${playerPoints}`)
-            //console.log(currentScore);
           }
           gameOver(playerPoints,pcPoints);
           document.getElementById('runningScore').innerHTML = currentScore;
 }
-
-//[playerPoints, pcPoints]
-
 
 const runningScore = document.createElement('div');
 runningScore.id = "runningScore";
@@ -130,11 +96,15 @@ const winnerDiv = document.createElement('div');
 winnerDiv.id = "winner";
 document.body.appendChild(winnerDiv);
 
+const buttonDiv = document.createElement('div');
+buttonDiv.id = "buttonDiv";
+document.body.appendChild(buttonDiv);
+
 function gameRestart() {
     const playAgain = document.createElement('button');
     playAgain.textContent = "Play Again?"
     playAgain.id = "playAgain";
-    document.body.appendChild(playAgain);
+    buttonDiv.appendChild(playAgain);
     document.getElementById('playAgain').innerHTML = playAgain.textContent;
     playAgain.addEventListener('click', newGame)
 }
@@ -143,22 +113,6 @@ function newGame() {
     location.reload();
     startGame();
 }
-
-
-/*function resetGame(){
-    playerPoints = 0;
-    pcPoints = 0;
-}
-
-    let startDiv = document.getElementById("start");
-    let gameBTNS = document.getElementById("btns");
-    let gameOver = document.getElementById("gameOver");
-    startDiv.style.display = "none";
-    gameBTNS.style.display = "none"; 
-    gameOver.style.display = "block"; 
-    playerPoints = 0;
-    pcPoints = 0;
-*/
 
 
 
